@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a LeBraz. Estamos prontos para atender você.">
+    <title>Contato | LeBraz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/lebraz-emporio-light.svg" alt="LeBraz" height="50"></a>
+            <div class="menu-toggle" onclick="this.nextElementSibling.classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#areas">Áreas</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="en/contact.html" class="lang-switch">EN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contato</h1>
+            <p>Estamos prontos para ouvir você</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <p><a href="mailto:contato@lebraz.com.br">contato@lebraz.com.br</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Endereço</strong>
+                        <p>Av. Paulista, 1000 - Sala 501<br>
+                        Bela Vista, São Paulo - SP<br>
+                        CEP: 01310-100</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Horário de Funcionamento</strong>
+                        <p>Segunda a Sexta<br>9h às 18h</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Razão Social</strong>
+                        <p>DURAN & GHAZZAOUI LTDA</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Envie uma Mensagem</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto" placeholder="Sobre o que deseja falar?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                    <p style="margin-top: 16px; font-size: 0.9rem; color: #888;">
+                        Responderemos em até 48 horas úteis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="images/lebraz-emporio-light.svg" alt="LeBraz" height="45"></a>
+                    <p>Empresa multidisciplinar atuando em soluções digitais, tecnologia e lifestyle.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="privacidade.html">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 LEBRAZ — DURAN & GHAZZAOUI LTDA. Todos os direitos reservados.</span>
+                <span>Brasil</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
