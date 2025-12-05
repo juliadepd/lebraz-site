@@ -1,0 +1,129 @@
+================================================================================
+                    VILÃO - DEMO ACCOUNT INSTRUCTIONS
+                    Google Play App Review Team
+================================================================================
+
+App Name: Vilão - Personal Finance Management
+Developer: DURAN & GHAZZAOUI LTDA (LeBraz)
+Package: com.lebraz.vilao
+
+--------------------------------------------------------------------------------
+                           ACCESSING DEMO MODE
+--------------------------------------------------------------------------------
+
+NO CREDENTIALS NEEDED - The app includes a built-in Demo Mode for testing.
+
+1. Open the Vilão app
+2. On the login screen, tap the "Demo Mode" button
+   (Portuguese: "Modo Demo")
+3. No email or password required - automatic login
+4. App will display sample financial data
+5. All features are available for testing
+
+Note: Real banking integration requires user's own bank credentials
+and is only available in production after user authentication.
+
+--------------------------------------------------------------------------------
+                           DEMO MODE FEATURES
+--------------------------------------------------------------------------------
+
+The Demo Mode includes:
+
+* Pre-populated sample bank accounts (2 accounts)
+* 3 months of fictional transaction history
+* Automatic expense categorization examples
+* Sample savings goals with progress
+* Recurring subscription examples
+* Full access to all app features
+
+--------------------------------------------------------------------------------
+                           FEATURES TO TEST
+--------------------------------------------------------------------------------
+
+1. DASHBOARD
+   - View consolidated balance across all accounts
+   - See recent transactions
+   - Check monthly spending summary
+
+2. TRANSACTIONS
+   - Browse transaction history
+   - Filter by date, category, or account
+   - View transaction details
+
+3. CATEGORIES
+   - See automatic expense categorization
+   - View spending breakdown by category
+   - Check category-wise analytics
+
+4. GOALS
+   - View sample savings goals
+   - Check progress tracking
+   - See goal recommendations
+
+5. SUBSCRIPTIONS
+   - View recurring payments
+   - See subscription management
+
+6. REPORTS
+   - Generate spending reports
+   - View financial insights
+   - Check monthly/yearly summaries
+
+7. SETTINGS
+   - Language: Portuguese (Brazil) / English
+   - Theme options
+   - Notification preferences
+
+--------------------------------------------------------------------------------
+                           IMPORTANT NOTES
+--------------------------------------------------------------------------------
+
+* This is a READ-ONLY financial visualization app
+* We do NOT perform any financial transactions
+* We do NOT move money or make payments
+* We do NOT store banking passwords
+* All banking connections use Open Banking Brazil (regulated by Central Bank)
+* Demo data is 100% fictional and for testing purposes only
+
+--------------------------------------------------------------------------------
+                           OPEN BANKING INFORMATION
+--------------------------------------------------------------------------------
+
+In production mode (not demo), users connect their real bank accounts via
+Open Banking Brazil, which is regulated by the Central Bank of Brazil.
+
+The app only has READ access to:
+- Account balances
+- Transaction history
+- Credit card bills
+
+The app CANNOT:
+- Make transfers
+- Make payments
+- Access passwords
+- Modify any banking data
+
+--------------------------------------------------------------------------------
+                           APP PERMISSIONS EXPLAINED
+--------------------------------------------------------------------------------
+
+* Internet: Required for syncing financial data via Open Banking
+* Notifications: Optional, for spending alerts and goal reminders
+* Biometric: Optional, for secure app unlock
+
+No special permissions are required for Demo Mode testing.
+
+--------------------------------------------------------------------------------
+                           SUPPORT CONTACT
+--------------------------------------------------------------------------------
+
+If you encounter any issues during testing, please contact:
+
+Email: contato@lebraz.com.br
+Developer Support: suporte@lebraz.com.br
+
+We typically respond within 24 hours.
+
+================================================================================
+                    Thank you for reviewing Vilão!
+================================================================================

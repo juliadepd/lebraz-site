@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request account and data deletion - Vilão App">
+    <title>Delete Account | Vilão</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        :root {
+            --vilao-purple: #9333ea;
+            --vilao-cyan: #06b6d4;
+        }
+
+        .vilao-page-header {
+            background: #131111;
+            padding: 80px 0 60px;
+        }
+
+        .vilao-page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(147,51,234,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .vilao-page-header .vilao-logo {
+            margin-bottom: 16px;
+        }
+
+        .vilao-page-header .vilao-logo img {
+            height: 220px;
+            width: auto;
+        }
+
+        .vilao-page-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        .vilao-footer {
+            background-color: #0f0f0f;
+        }
+
+        .vilao-footer .footer-brand p {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .delete-section {
+            padding: 80px 0;
+        }
+
+        .delete-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .delete-content h2 {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .delete-content p {
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .delete-content ul {
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .delete-content li {
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background-color: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 32px 0;
+        }
+
+        .warning-box h3 {
+            color: #92400e;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .warning-box p {
+            color: #92400e;
+            margin-bottom: 0;
+        }
+
+        .delete-form {
+            background-color: var(--bg-light);
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid var(--border-light);
+        }
+
+        .delete-form h3 {
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border-light);
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: var(--bg-white);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-delete {
+            background-color: #dc2626;
+            color: #fff;
+            padding: 16px 32px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background-color: #b91c1c;
+        }
+
+        .alternative-methods {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Lista de dados */
+        .data-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 24px;
+            margin-bottom: 32px;
+        }
+
+        .data-list li {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+        }
+
+        .data-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--vilao-purple) 0%, var(--vilao-cyan) 100%);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Cards para métodos alternativos */
+        .methods-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .methods-list li {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px 24px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .methods-list li:hover {
+            border-color: rgba(147,51,234,0.3);
+            box-shadow: 0 4px 12px rgba(147,51,234,0.1);
+        }
+
+        .methods-list li strong {
+            color: var(--vilao-purple);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Checkbox alinhado no topo */
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group span {
+            flex: 1;
+        }
+
+        @media (max-width: 600px) {
+            .data-list {
+                grid-template-columns: 1fr;
+            }
+
+            .vilao-page-header .vilao-logo img {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="../../en/index.html" class="logo"><img src="../../images/lebraz-emporio-light.svg" alt="LeBraz" height="50"></a>
+            <div class="menu-toggle" onclick="this.nextElementSibling.classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Vilão</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="../../en/index.html">LeBraz</a></li>
+                    <li><a href="../excluir-conta.html" class="lang-switch">PT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header vilao-page-header">
+        <div class="container">
+            <div class="vilao-logo">
+                <img src="../../images/vilao-logo.png" alt="Vilão">
+            </div>
+            <p>Request account and personal data deletion</p>
+        </div>
+    </section>
+
+    <!-- Delete Account Content -->
+    <section class="delete-section">
+        <div class="container">
+            <div class="delete-content">
+                <h2>Account and Data Deletion</h2>
+                <p>
+                    You have the right to request the deletion of your account and all
+                    personal data associated with it, as provided by the Brazilian General
+                    Data Protection Law (LGPD - Law 13.709/2018).
+                </p>
+
+                <h2>What will be deleted</h2>
+                <p>When you request account deletion, the following data will be removed:</p>
+                <ul class="data-list">
+                    <li>Profile information (name, email)</li>
+                    <li>Synced transaction history</li>
+                    <li>Financial goals and objectives</li>
+                    <li>App preferences and settings</li>
+                    <li>Financial institution connections</li>
+                    <li>All data stored on our servers</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h3>Warning</h3>
+                    <p>
+                        This action is irreversible. After deletion, it will not be possible to recover
+                        your data. If you only want to disconnect a specific bank account,
+                        you can do so in the app settings without deleting your account.
+                    </p>
+                </div>
+
+                <h2>Deletion timeframe</h2>
+                <p>
+                    After confirming your request, your data will be deleted within
+                    <strong>30 days</strong>. You will receive an email confirming the completion
+                    of the process.
+                </p>
+
+                <h2>Data retained by legal obligation</h2>
+                <p>
+                    Some data may be retained for an additional period when there is a legal
+                    obligation, such as access logs (Brazilian Internet Civil Framework) or data
+                    required for compliance with tax or regulatory obligations.
+                </p>
+
+                <!-- Delete Form -->
+                <div class="delete-form">
+                    <h3>Request Account Deletion</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="email">Account email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter the email registered with Vilão" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="motivo">Reason for deletion (optional)</label>
+                            <textarea id="motivo" name="motivo" placeholder="Help us improve: why are you deleting your account?"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="confirma" required>
+                                <span>I confirm that I want to delete my account and all associated data.
+                                I understand that this action is irreversible.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-delete">Request Deletion</button>
+                    </form>
+                </div>
+
+                <!-- Alternative Methods -->
+                <div class="alternative-methods">
+                    <h2>Other ways to request</h2>
+                    <p>You can also request account deletion through:</p>
+                    <ul class="methods-list">
+                        <li>
+                            <strong>Within the app</strong>
+                            Settings → My Account → Delete Account
+                        </li>
+                        <li>
+                            <strong>Email</strong>
+                            Send an email to <a href="mailto:contato@lebraz.com.br">contato@lebraz.com.br</a> with the subject "Account Deletion"
+                        </li>
+                        <li>
+                            <strong>Support</strong>
+                            Contact us through our <a href="support.html">support form</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="vilao-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../../en/index.html" class="logo"><img src="../../images/lebraz-emporio-light.svg" alt="LeBraz" height="45"></a>
+                    <p>Vilão - A LeBraz product</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="delete-account.html">Delete Account</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 LEBRAZ — DURAN & GHAZZAOUI LTDA. All rights reserved.</span>
+                <span>Brazil</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
